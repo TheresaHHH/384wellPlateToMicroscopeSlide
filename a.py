@@ -100,4 +100,11 @@ for r in range(len(rotatedTables1)):
                 finalexceltexts.insert(len(finalexceltexts), exceltexts);
                 exceltexts = [];
                 exceltext = [];
+                
+#Write a txt file. 
+with open('NewTable.txt', 'w') as file:
+    file.write(Raws);       
 
+# Write an excel file
+ex = pd.DataFrame(finalexceltexts)
+ex.to_excel('RotatedTables.xlsx', index=False, header=False)
