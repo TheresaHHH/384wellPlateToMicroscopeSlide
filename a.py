@@ -1,21 +1,36 @@
-import openpyxl
+import pandas as pd
+import numpy as np
 
-# Load the workbook
-wb = openpyxl.load_workbook('Book4.xlsx')
+#reads the excel file
+excel_File=pd.ExcelFile('Book4.xlsx');
+excelSheets = excel_File.sheet_names;
 
-# Check if 'Result' sheet exists and if so, delete it
-if 'Result' in wb.sheetnames:
-    del wb['Result']
+#How many columns and rows in each small table?
+firstTableColumn = 12;
+firstTableRow = 4;
 
-# Select the sheet you want to copy from
-source = wb['Sheet1']
+firstTables = [];
 
-# Create a new sheet and select it
-destination = wb.create_sheet('Result')
+for sheets in range(len(excelSheets)):
+    #Dataframe
+    file = excel_File.parse(excelSheets[sheets], header=None, names=None, index_col=None, usecols=None) ;
 
-# Copy the values from the source sheet to the destination sheet
-for row in source:
-    for cell in row:
-        destination[cell.coordinate].value = cell.value
+    ##How many tables are on the left side?
+    for j in range(4):
+        firstTable=[];
+        for i in range(firstTableRow):
+            tempRow = file.loc[i+j*firstTableRow, 0 : firstTableColumn-1].values.tolist();
+            firstTable.extend(tempRow);
+        firstTables.insert(len(firstTables), firstTable);
 
-# Save the workbook
+    ##How many tables are on the right side?
+    for j in range(4):
+        firstTable=[];
+        for i in range(firstTableRow):
+            tempRow = file.loc[i+j*firstTableRow, firstTableColumn: firstTableColumn*2-1].values.tolist();
+            #firstTable.insert(len(firstTable), tempRow);
+            firstTable.extend(tempRow);
+        firstTables.insert(len(firstTables), firstTable);        
+    print('sheetName: '+ str(sheets) + ' is read.');
+ 
+ 
