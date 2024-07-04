@@ -1,5 +1,12 @@
 import pandas as pd
 import numpy as np
+from openpyxl import load_workbook
+
+#it only runs when when you run this file it more than once 
+wb = openpyxl.load_workbook('Book4.xlsx')
+# Check if 'Result' sheet exists and if so, delete it
+if 'Result' in wb.sheetnames:
+    del wb['Result']
 
 #reads the excel file
 excel_File=pd.ExcelFile('Book4.xlsx');
