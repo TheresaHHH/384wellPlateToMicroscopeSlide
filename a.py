@@ -60,3 +60,15 @@ for i in range(len(rotatedTables1)):
             ##reverse the data in each row.
             temp = [sublist[::-1] for sublist in temp];
             rotatedTables1[i][j] = temp;
+
+'''
+#testing
+print('[][][]'+str(len(rotatedTables1[0][0][0]))) #7          
+print(rotatedTables1[0][0][6]) 
+print('[][]'+str(len(rotatedTables1[0][0])))  #7               
+print(rotatedTables1[0][3])
+print('[]'+str(len(rotatedTables1[0]))) #4
+print(rotatedTables1[11]) 
+print('x'+str(len(rotatedTables1))) #12
+'''
+
