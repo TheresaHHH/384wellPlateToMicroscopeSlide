@@ -34,3 +34,29 @@ for sheets in range(len(excelSheets)):
     print('sheetName: '+ str(sheets) + ' is read.');
  
  
+ # Organizes the cells into tables based on their coordinators Adds 'blank to each table
+zippedTables0 = [list(x) for x in zip(*firstTables)];
+zippedTables0 = [sublist + ['blank'] for sublist in zippedTables0];
+#print(zippedTables0);
+
+#48 pre-rotated tables in 4 rows. 12 tables in a row. 
+##Please change the values if different. 
+secondTableColumn = 12;
+secondTableRow = 4;
+zippedTables1 = [];
+for i in range(secondTableRow):
+    zippedTables1.insert(len(zippedTables1), zippedTables0[i*secondTableColumn:secondTableColumn*(i+1)]);
+ 
+#Rotates to the right. The order of cells is not correct. 
+rotatedTables0 = np.rot90(zippedTables1, -1);
+rotatedTables1 = rotatedTables0.tolist();
+#print(rotatedTables1)
+
+# Fixes the order of cells.
+##Please replace 7 with the desired value. How many cells in a row? 
+for i in range(len(rotatedTables1)):
+    for j in range(len(rotatedTables1[i])):
+            temp = [rotatedTables1[i][j][z : z+7] for z in range(0, len(rotatedTables1[i][j]),7)];
+            ##reverse the data in each row.
+            temp = [sublist[::-1] for sublist in temp];
+            rotatedTables1[i][j] = temp;
