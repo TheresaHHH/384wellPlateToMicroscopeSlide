@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from openpyxl import load_workbook
+import openpyxl
 
 #it only runs when when you run this file it more than once 
 wb = openpyxl.load_workbook('Book4.xlsx')
