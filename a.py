@@ -72,3 +72,32 @@ print(rotatedTables1[11])
 print('x'+str(len(rotatedTables1))) #12
 '''
 
+#cells for excel
+finalexceltexts = [];
+exceltexts = [];
+exceltext = [];
+
+#final strings
+Raws=f'{"Block":<13}{"Raw":<11}{"Column":<12}{"GeneID":<7}'+'\n'
+for r in range(len(rotatedTables1)): 
+    
+    for i in range(len(rotatedTables1[0][0])):
+        
+        rs = 0;
+        for j in range(len(rotatedTables1[0])):
+            p = False;
+
+            for k,g in enumerate(rotatedTables1[r][j][i]):
+                Raws = Raws + f'{str((r+1)*(j+1)):<13}{str(i+1):<11}{str(k+1):<12}{g:<7}'+'\n';
+                if p == False:
+                    exceltext.extend(rotatedTables1[r][j][i]);
+                    rs = rs+1;
+                    p= True;
+            
+            if rs == 4:
+                exceltexts.extend(exceltext);
+                #print(exceltexts);
+                finalexceltexts.insert(len(finalexceltexts), exceltexts);
+                exceltexts = [];
+                exceltext = [];
+
