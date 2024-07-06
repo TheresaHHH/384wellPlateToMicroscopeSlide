@@ -8,7 +8,7 @@ c. rotatedresult to txt
 
 
 Instruction:
-1. Insall the latest version of python and PIP, a package manager. 
+1. Install the latest version of python and PIP, a package manager. 
 Then install the libraries openpyxl, pandas, and numpy. 
 Please use command "pip install pandas numpy openpyxl".
 
