@@ -8,7 +8,6 @@ fileName='RotatedResult.xlsx'
 sheetName='RotatedResult'
 wb = load_workbook(fileName)
 
-######roate table cloclwise 90#######
 # Select the Result sheet
 sheet = wb[sheetName]
 tables1 = []
