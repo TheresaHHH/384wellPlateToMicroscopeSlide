@@ -3,6 +3,8 @@ Libraries: openpyxl, pandas, numpy
 
 
 Description:
+a. abandon1
+c. rotatedresult to txt
 
 
 Instruction:
