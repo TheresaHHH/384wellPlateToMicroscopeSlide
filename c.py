@@ -30,7 +30,6 @@ with open('result.txt', 'w') as f:
         for row in range(6):
             for col in range(6):
                 data=tables1[i-1][row][col]
-                #f.write(f'{i}, {row+1}, {col+1}, {data}\n')
                 f.write(f"{i:<5} {row + 1:<5} {col + 1:<7} {data}\n")
                 
 print("result.txt is generated")
