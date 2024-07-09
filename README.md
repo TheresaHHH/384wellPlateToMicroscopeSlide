@@ -8,6 +8,7 @@ Please use command "pip install pandas numpy openpyxl".
 
 
 Have a.py, b.py, c.py and your excel file, in the same folder.
+
 Please close excel file while you running the py file, or you will get an error message.
 
 
