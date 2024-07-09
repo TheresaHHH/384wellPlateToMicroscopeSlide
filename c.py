@@ -2,9 +2,10 @@ import pandas as pd
 import numpy as np
 from openpyxl import load_workbook
 from  openpyxl.utils.dataframe import dataframe_to_rows
+import sys
 
+fileName= sys.argv[1]
 # Load the workbook
-fileName='Result.xlsx'
 wb = load_workbook(fileName)
 sheetName=wb.sheetnames[0]
 
