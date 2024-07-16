@@ -120,3 +120,29 @@ print(str(len(zippedTables1[0])))
 print(zippedTables1[3]) #12
 print(str(len(zippedTables1))) #4
 '''
+
+##Please change the 72 to the acutal number of rows in rotatedTables.
+finalexceltext0 = [[] for _ in range(72)]
+
+Raws=f'{"Block":<13}{"Raw":<11}{"Column":<12}{"GeneID":<25}'+'\n';
+ 
+##Please replace 6 with the desired value. How many cells in a row? 
+for i in range(len(zippedTables1)):
+    for j in range(len(zippedTables1[0])):
+        temp = [zippedTables1[i][j][z : z+6] for z in range(0, len(zippedTables1[i][j]),6)];
+        for k in range(len(zippedTables1[0][0])):
+            if i!=0 :
+                finalexceltext0[j*6+k].extend(zippedTables1[i][j][k]);     
+            else:
+                finalexceltext0[j*6+k]= zippedTables1[i][j][k]; 
+            for z, g in enumerate(zippedTables1[i][j][k]):
+                Raws = Raws + f'{str((i)*secondTableColumn+j+1):<13}{str(k+1):<11}{str(z+1):<12}{g:<25}'+'\n';
+                             
+Raws= Raws+'\n'+'Created by HsuanJang and HsuanHua Hung <3'                             
+print(Raws)
+#print(finalexceltext0);
+
+#Write a txt file. 
+with open('BeautifulTable.txt', 'w') as file:
+    file.write(Raws);
+print('A txt file is created.')
