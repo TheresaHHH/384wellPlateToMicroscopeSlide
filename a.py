@@ -146,3 +146,20 @@ print(Raws)
 with open('BeautifulTable.txt', 'w') as file:
     file.write(Raws);
 print('A txt file is created.')
+
+# Write an excel file    
+new_sheet = wb.create_sheet(title = newSheet);
+ws = wb[newSheet];
+for row_index, row in enumerate(finalexceltext0):
+    for col_index, value in enumerate(row):
+        ws.cell(row = row_index + 1, column = col_index + 1, value = value)
+wb.save(fileName)
+print('Sheet RotatedTable is added to '+ fileName);
+
+op1 = input('Do you want to create a new excel file? Enter 0 to create it.')
+if op1 == '0':
+  ex = pd.DataFrame(finalexceltext0)
+  ex.to_excel('BeautifulTables.xlsx', index=False, header=False)
+else:
+  print('The End.')
+  
